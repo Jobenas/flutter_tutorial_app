@@ -1,5 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import "package:tutorial_app/pages/home_page.dart";
+import 'package:tutorial_app/pages/home_page_with_fb.dart';
 import 'package:tutorial_app/pages/login_page.dart';
 import "package:flutter/material.dart";
 import 'package:tutorial_app/utils/constants.dart';
@@ -14,8 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home:
-            Constants.prefs.get("loggedIn") == true ? HomePage() : LoginPage(),
+        home: Constants.prefs.get("loggedIn") == true
+            ? HomePageFB()
+            : LoginPage(),
         theme: ThemeData(primarySwatch: Colors.blue),
         routes: {
           LoginPage.routeName: (context) => LoginPage(),
